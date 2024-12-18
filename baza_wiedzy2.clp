@@ -526,11 +526,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; HORROR ŚCIEŻKA DLA "A Strategy Game"
-;; Nadpisuje poprzednią regułę horror za pomocą salience
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defrule strategy-theme-horror-override
-   (declare (salience 100))
    ?o <- (odpowiedz "Horror")
    ?p <- (pytanie "What kind of theme?" "Horror" "Science Fiction" "Fantasy")
    =>
@@ -659,11 +657,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; FANTASY ŚCIEŻKA DLA "A Strategy Game"
-;; Nadpisuje poprzednią regułę fantasy za pomocą salience
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defrule strategy-theme-fantasy-override
-   (declare (salience 100))
    ?o <- (odpowiedz "Fantasy")
    ?p <- (pytanie "What kind of theme?" "Horror" "Science Fiction" "Fantasy")
    =>
