@@ -28,11 +28,11 @@ def main():
         if question_fact:
             question = question_fact[0]
             answers = question_fact[1:]
-
+            #Zadanie pytania
             print("\n" + question)
             for i, ans in enumerate(answers, start=1):
                 print(f"{i}) {ans}")
-
+            #Wybór odpowiedzi na pytanie
             choice = None
             while True:
                 inp = input("Your choice: ")
@@ -45,7 +45,7 @@ def main():
                         print("Invalid choice, try again.")
                 except:
                     print("Enter a number.")
-
+            #Dodanie odpowiedzi do puli faktów
             env.assert_string(f'(odpowiedz "{choice}")')
 
 if __name__ == "__main__":

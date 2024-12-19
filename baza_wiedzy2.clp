@@ -1,7 +1,4 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; A STRATEGY GAME SCIEŻKA – DODATKOWA LOGIKA DLA SCIENCE FICTION
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Szablon startowy: brak wyników, brak pytań, brak odpowiedzi
 ;; Tworzymy pierwsze pytanie.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -14,7 +11,7 @@
    (assert (pytanie "What type of game are you looking for?" "I want a Wargame" "A Strategy Game")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Wybór główny: Wargame czy A Strategy Game
+;; WYBÓR GłóWNY: Wargame vs A Strategy Game
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defrule choose-wargame
@@ -44,7 +41,8 @@
    (assert (pytanie "Do you have any wargaming experience?" "It's new to me" "Yes")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; WARGAME + JUST ME
+;; WARGAME ŚCIEŻKA
+;; JUST ME
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defrule wargame-just-me-historic
@@ -69,7 +67,8 @@
    (assert (wynik "Space Infantry (Science Fiction)")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; WARGAME + 2 or more
+;; WARGAME ŚCIEŻKA
+;; 2 or more
 ;; Pytanie o doświadczenie
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -88,7 +87,8 @@
    (assert (pytanie "Want to command Roman legions?" "Yes" "No")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; It's new to me -> Are you a fan of Risk?
+;; WARGAME ŚCIEŻKA
+;; Doświadczenie: It's new to me -> Are you a fan of Risk?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defrule wargame-risk-yes
@@ -120,7 +120,8 @@
    (assert (wynik "Battles of Westeros (Fantasy)")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Experience = Yes -> Want to command Roman legions?
+;; WARGAME ŚCIEŻKA
+;; Doświadczenie: Yes -> Want to command Roman legions?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defrule wargame-roman-yes
@@ -152,6 +153,7 @@
    (assert (pytanie "How about World War II?" "Yes" "No")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; WARGAME ŚCIEŻKA
 ;; World War II?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -184,6 +186,7 @@
    (assert (wynik "Tide of Iron (roll roll roll)")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; WARGAME ŚCIEŻKA
 ;; Modern Warfare
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -202,6 +205,7 @@
    (assert (pytanie "Science Fictions or alternate history?" "Alt-History" "Science Fiction")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; WARGAME ŚCIEŻKA
 ;; Sci-Fi or Alt-History
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -247,8 +251,6 @@
    (retract ?o ?p)
    (assert (wynik "Battletech (Mechs)")))
 
-;; Zastępujemy "Not implemented for A Strategy Game" z reguły choose-strategy
-;; Dodajemy pytanie o temat.
 (defrule choose-strategy-override
    ?o <- (odpowiedz "A Strategy Game")
    ?p <- (pytanie "What type of game are you looking for?" "I want a Wargame" "A Strategy Game")
